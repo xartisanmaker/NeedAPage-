@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Websites by Ana: clean, mobile-friendly websites for small businesses in Lafayette, Louisiana.">
+<title>Websites by Ana</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: a working studio sheet. Big name up top, then each client site as a wide "browser" card, then how it works and contact. */
+:root{
+  --bg:#eef1f4;
+  --surface:#ffffff;
+  --ink:#14202b;
+  --muted:#556270;
+  --line:#d3dae2;
+  --accent:#1f5eff;
+  --accent-ink:#ffffff;
+  --wood:#9a4d12;
+  --sea:#0b7a6b;
+  --display:"Bricolage Grotesque", "Arial Narrow", system-ui, sans-serif;
+  --body:"Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0f151c; --surface:#17202a; --ink:#e8edf2; --muted:#9aa8b6; --line:#2a3644;
+    --accent:#6f97ff; --accent-ink:#0b1220; --wood:#e39a5c; --sea:#4fd1bd; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0f151c; --surface:#17202a; --ink:#e8edf2; --muted:#9aa8b6; --line:#2a3644;
+  --accent:#6f97ff; --accent-ink:#0b1220; --wood:#e39a5c; --sea:#4fd1bd; color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;padding-inline:20px;padding-block:0 48px}
+.wrap{max-width:1040px;margin-inline:auto;display:flex;flex-direction:column;gap:88px}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+h1,h2,h3{font-family:var(--display);line-height:1.05;text-wrap:balance;margin:0}
+p{margin:0}
+.label{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+
+/* Header */
+header{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:22px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.brand{font-family:var(--display);font-weight:800;font-size:20px;letter-spacing:-.01em}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--body);font-weight:700;font-size:16px;text-decoration:none;padding:12px 20px;border-radius:999px;border:2px solid var(--accent);background:var(--accent);color:var(--accent-ink);cursor:pointer}
+.btn.ghost{background:transparent;color:var(--accent)}
+
+/* Hero */
+.hero{display:flex;flex-direction:column;gap:24px;padding-top:24px}
+.hero h1{font-size:clamp(44px,8.5vw,104px);font-weight:800;letter-spacing:-.035em}
+.hero h1 .hl{color:var(--accent)}
+.hero p{max-width:60ch;font-size:clamp(18px,2.2vw,21px);color:var(--muted)}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.facts{display:flex;flex-wrap:wrap;gap:10px 28px;font-family:var(--mono);font-size:14px;color:var(--muted)}
+.facts b{color:var(--ink);font-weight:600}
+
+/* Work */
+.section-head{display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+.section-head h2{font-size:clamp(32px,5vw,52px);font-weight:800;letter-spacing:-.02em}
+.work{display:flex;flex-direction:column;gap:40px}
+.project{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.chrome{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid var(--line)}
+.dots{display:flex;gap:6px;flex-shrink:0}
+.dots i{width:10px;height:10px;border-radius:50%;background:var(--line);display:block}
+.url{font-family:var(--mono);font-size:13px;color:var(--muted);background:var(--bg);padding:5px 12px;border-radius:999px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pbody{display:grid;grid-template-columns:1.1fr .9fr;gap:0}
+.pmain{padding:32px;display:flex;flex-direction:column;gap:18px;min-width:0}
+.pside{padding:32px;border-left:1px solid var(--line);display:flex;flex-direction:column;gap:18px;min-width:0}
+.kind{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:600}
+.wood .kind{color:var(--wood)}
+.sea .kind{color:var(--sea)}
+.pmain h3{font-size:clamp(30px,4.4vw,46px);font-weight:800;letter-spacing:-.02em}
+.pmain p{max-width:56ch}
+.built{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.built li{display:flex;gap:10px;align-items:baseline}
+.built li::before{content:"";width:7px;height:7px;border-radius:2px;background:currentColor;flex-shrink:0;transform:translateY(-2px)}
+.wood .built li::before{color:var(--wood)}
+.sea .built li::before{color:var(--sea)}
+.plinks{display:flex;gap:10px;flex-wrap:wrap}
+
+.qrcard{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.qr{background:#ffffff;padding:10px;border-radius:10px;border:1px solid var(--line);width:132px;height:132px;flex-shrink:0}
+.qr img,.qr canvas{display:block;width:112px!important;height:112px!important}
+.qrtext{display:flex;flex-direction:column;gap:6px;min-width:0;flex:1}
+.mono{font-family:var(--mono);font-size:14px;word-break:break-all}
+.stat{display:flex;flex-direction:column;gap:2px}
+.stat strong{font-family:var(--display);font-size:34px;font-weight:800;line-height:1}
+.stat span{color:var(--muted);font-size:15px}
+.statrow{display:flex;gap:28px;flex-wrap:wrap}
+
+/* Offer */
+.offer{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.offer div{display:flex;flex-direction:column;gap:8px;padding-top:16px;border-top:2px solid var(--ink)}
+.offer h3{font-size:22px;font-weight:700}
+.offer p{color:var(--muted)}
+
+/* Steps */
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:s}
+.steps li{counter-increment:s;display:flex;flex-direction:column;gap:8px}
+.steps li::before{content:counter(s);font-family:var(--display);font-weight:800;font-size:44px;line-height:1;color:var(--accent)}
+.steps h3{font-size:20px;font-weight:700}
+.steps p{color:var(--muted);font-size:16px}
+
+/* Contact */
+.contact{background:var(--ink);color:var(--bg);border-radius:18px;padding:clamp(28px,5vw,56px);display:flex;flex-direction:column;gap:20px}
+.contact h2{font-size:clamp(34px,5.5vw,60px);font-weight:800;letter-spacing:-.02em}
+.contact p{max-width:58ch;opacity:.85}
+.contact .label{color:var(--bg);opacity:.7}
+.contact-line{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.contact .mono{font-size:18px}
+.contact .btn{background:var(--bg);color:var(--ink);border-color:var(--bg)}
+footer{font-size:14px;color:var(--muted);border-top:1px solid var(--line);padding-top:20px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+@media (max-width:820px){
+  .pbody{grid-template-columns:1fr}
+  .pside{border-left:0;border-top:1px solid var(--line)}
+  .offer{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}
+}
+@media (max-width:480px){
+  body{font-size:16px;padding-inline:16px}
+  .pmain,.pside{padding:22px}
+  .steps{grid-template-columns:1fr}
+  .wrap{gap:64px}
+}
+@media (prefers-reduced-motion:no-preference){
+  .project{transition:transform .2s ease, box-shadow .2s ease}
+  .project:hover{transform:translateY(-3px);box-shadow:0 14px 30px -18px rgba(20,32,43,.35)}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand">Websites by Ana</div>
+    <a class="btn" href="#contact">Get a website</a>
+  </header>
+
+  <section class="hero">
+    <span class="label">Web design for small businesses · Lafayette, Louisiana</span>
+    <h1>Your business, <span class="hl">online</span> and easy to find.</h1>
+    <p>I build clean, mobile-friendly websites for small businesses. Customers can see what you sell, tap to call you, and find you on the map. You also get a short link and a QR code you can put on signs, trucks and flyers.</p>
+    <div class="hero-actions">
+      <a class="btn" href="#contact">Ask about a website</a>
+      <a class="btn ghost" href="#work">See my work</a>
+    </div>
+    <div class="facts">
+      <span><b>2</b> sites live</span>
+      <span><b>Phone-first</b> design</span>
+      <span><b>Short link + QR</b> included</span>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="section-head">
+      <span class="label">Recent work</span>
+      <h2>Sites I've built</h2>
+    </div>
+
+    <div class="work">
+      <!-- CostinULess -->
+      <article class="project wood">
+        <div class="chrome"><div class="dots"><i></i><i></i><i></i></div><span class="url">tinyurl.com/CostinULess</span></div>
+        <div class="pbody">
+          <div class="pmain">
+            <span class="kind">Local business · Firewood</span>
+            <h3>CostinULess</h3>
+            <p>A one-page website for a firewood seller in Brooklyn, Mississippi. It shows seasoned oak, green oak, cooking and smoking wood, and firewood racks, with a call-now button on every section so customers can order with one tap.</p>
+            <ul class="built">
+              <li>Product section with clear "call for pricing" buttons</li>
+              <li>Free delivery area (30 miles) and 24-hour hours up front</li>
+              <li>Google reviews, a "See It Burn" video, and a map link</li>
+              <li>Custom short link and printable QR code</li>
+            </ul>
+            <div class="plinks">
+              <a class="btn" href="https://tinyurl.com/CostinULess" target="_blank" rel="noopener">Visit the site</a>
+            </div>
+          </div>
+          <div class="pside">
+            <span class="label">Short link + QR code</span>
+            <div class="qrcard">
+              <div class="qr" id="qr-cul" role="img" aria-label="QR code that opens the CostinULess website"></div>
+              <div class="qrtext">
+                <span class="mono">tinyurl.com/CostinULess</span>
+                <p style="color:var(--muted);font-size:15px">Scan with a phone camera. Made for flyers, yard signs and the side of a delivery truck.</p>
+              </div>
+            </div>
+            <div class="statrow">
+              <div class="stat"><strong>4.6★</strong><span>Google rating shown</span></div>
+              <div class="stat"><strong>30 mi</strong><span>Free delivery area</span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Exitus -->
+      <article class="project sea">
+        <div class="chrome"><div class="dots"><i></i><i></i><i></i></div><span class="url">exitusadvisor.org</span></div>
+        <div class="pbody">
+          <div class="pmain">
+            <span class="kind">Web app · Relocation</span>
+            <h3>Exitus</h3>
+            <p>A relocation website that helps people find which countries they could move to. Its built-in AI guide, Emap, matches visitors to countries based on their income and situation, and covers visas, safety, banking, healthcare and owning property.</p>
+            <ul class="built">
+              <li>AI assistant that answers questions in plain language</li>
+              <li>Country matching across 14+ destinations</li>
+              <li>Free and paid plans with online checkout</li>
+              <li>Hosted, with analytics to track visitors</li>
+            </ul>
+            <div class="plinks">
+              <a class="btn" href="https://exitusadvisor.org" target="_blank" rel="noopener">Visit the site</a>
+            </div>
+          </div>
+          <div class="pside">
+            <span class="label">What it shows</span>
+            <p>Bigger than a one-page site. Exitus has accounts, subscriptions and an AI chat built in, so I can build more than a business card on the web.</p>
+            <div class="statrow">
+              <div class="stat"><strong>14+</strong><span>Countries covered</span></div>
+              <div class="stat"><strong>AI</strong><span>Built-in guide</span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="label">What you get</span>
+      <h2>Everything a small business needs to get found</h2>
+    </div>
+    <div class="offer">
+      <div><h3>A site that works on phones</h3><p>Most of your customers will see it on their phone. It's built for that first, then looks good on a computer too.</p></div>
+      <div><h3>Tap to call, tap to find you</h3><p>Big call and text buttons, your hours, your delivery area, and a link to your spot on the map.</p></div>
+      <div><h3>Short link and QR code</h3><p>An easy link you can say out loud and a QR code for signs, cards, trucks and flyers.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="label">How it works</span>
+      <h2>From a conversation to a live website</h2>
+    </div>
+    <ol class="steps">
+      <li><h3>Tell me about your business</h3><p>What you sell, where you are, how people reach you. Send a few photos if you have them.</p></li>
+      <li><h3>I build a first version</h3><p>You get a link to look at it on your own phone.</p></li>
+      <li><h3>You ask for changes</h3><p>Wording, photos, colors. We adjust until it feels right.</p></li>
+      <li><h3>It goes live</h3><p>You get the final link, your short link and your QR code.</p></li>
+    </ol>
+  </section>
+
+  <section class="contact" id="contact">
+    <span class="label">Get in touch</span>
+    <h2>Want a website like these?</h2>
+    <p>Send me a message on Facebook. Tell me what your business does and I'll let you know what I can build for you and what it would cost.</p>
+    <div class="contact-line">
+      <a class="btn" href="https://www.facebook.com/profile.php?id=100092196767391" target="_blank" rel="noopener">Message me on Facebook</a>
+    </div>
+  </section>
+
+  <footer>
+    <span>Websites by Ana · Lafayette, LA</span>
+    <span>Sites shown are live and built by me.</span>
+  </footer>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+(function(){
+  try{
+    if(window.QRCode){
+      new QRCode(document.getElementById("qr-cul"),{text:"https://tinyurl.com/CostinULess",width:112,height:112,colorDark:"#000000",colorLight:"#ffffff",correctLevel:QRCode.CorrectLevel.M});
+    }
+  }catch(e){}
+})();
+</script>
+</body>
+</html>
